@@ -22,7 +22,7 @@ function CreateBlogPostMuseum() {
 
         axios.post("https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/museumgallery.json", newPost)
             .then(() => {
-                navigate("/projects")
+                navigate("/Museums")
             })
             .catch(e => console.log("Error creating a new project...", e));
     }

@@ -58,7 +58,7 @@ button:focus-visible {
 
 .navbar-buttons {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 .navbar-buttons button {
@@ -66,14 +66,20 @@ button:focus-visible {
 }
 
 .accordion-content {
-  display: flex; 
-  flex-direction: column; 
-  position: absolute; 
-  margin-top: 5px; 
+  opacity: 0; /* Start hidden */
+  visibility: hidden;
+  flex-direction: column;
+  position: absolute;
+  margin-top: 5px;
   padding: 10px;
-  z-index: 1000; 
+  z-index: 1000;
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Transition for smooth effect */
 }
 
+.accordion:hover .accordion-content {
+  opacity: 1; /* Become fully visible */
+  visibility: visible;
+}
 
 
 @media (prefers-color-scheme: light) {

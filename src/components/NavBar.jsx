@@ -28,15 +28,15 @@ function NavBar(){
                     </button>
                     {isCategoriesOpen && (
                         <div className="accordion-content">
-                            <Link to="/Museums">
+                            <NavLink to="/Museums">
                                 <button>Museums</button>
-                            </Link>
-                            <Link to="/Friperies">
+                            </NavLink>
+                            <NavLink to="/Friperies">
                                 <button>Friperies</button>
-                            </Link>
-                            <Link to="/Restaurants">
+                            </NavLink>
+                            <NavLink to="/Restaurants">
                                 <button>Restaurants</button>
-                            </Link>
+                            </NavLink>
                         </div>
                     )}
                 </div>
