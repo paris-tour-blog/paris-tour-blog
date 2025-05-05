@@ -1,14 +1,18 @@
+import { useState } from "react"
+import { Link } from "react-router-dom"
 function HomePage() {
     const [blog, setBlog] = useState(false)
   
     return (
-      <>
-      <h1>XXX</h1>
-     <p> <Link to="/blog">
-      <button>Go to Blog</button></Link></p>
-  
+    
+      <div>
+      <h1>Les Parisiens</h1>
+     <Link to="/blog">
+      <button>Go to Blog</button>
+      </Link>
+      </div>
 
-      </>
+     
     )
   }
   
