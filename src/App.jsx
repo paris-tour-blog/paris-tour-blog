@@ -13,9 +13,13 @@ import Museums from './pages/Museums.jsx';
 import Friperies from './pages/Friperies.jsx';
 import Footer from './components/Footer.jsx';
 import Restaurants from './pages/Restaurants.jsx';
+import MuseumPosts from './pages/MuseumPosts.jsx';
+import FriperiesPosts from './pages/FriperiesPosts.jsx';
+import RestaurantsPosts from './pages/RestaurantsPosts.jsx';
+import EditBlogs from './pages/EditBlog.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
@@ -36,8 +40,11 @@ function App() {
         <Route path="/Museums" element={<Museums />} />
         <Route path="/Friperies" element={<Friperies />} />
         <Route path="/Restaurants" element={<Restaurants />} />
-       
-        
+        <Route path="/MuseumPosts/:id" element={<MuseumPosts  />} />
+        <Route path="/FriperiesPosts/:id" element={<FriperiesPosts />} />
+        <Route path="/RestaurantsPosts/:id" element={<RestaurantsPosts />} />
+        <Route path="/EditBlogs" element={<EditBlogs />} />
+
         
       </Routes>
 

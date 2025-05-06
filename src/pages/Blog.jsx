@@ -3,8 +3,8 @@ import axios from "axios";
 import HomePage from "./HomePage";
 import { Link } from "react-router-dom";
 import Museums from "./Museums";
+import MuseumPosts from "./MuseumPosts";
 
-<Museums />
 
 export default function Blog() {
   const [postsMuseum, setPostsMuseum] = useState([]);
@@ -15,12 +15,13 @@ export default function Blog() {
     axios
       .get("https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/museumgallery.json")
       .then((response) => {
-        console.log("Museum API data:", response.data);
+       
         const postsMuseumObj = response.data || {};
         const postsMuseumArray = Object.keys(postsMuseumObj).map((id) => ({
           id,
           ...postsMuseumObj[id],
         }));
+        
         setPostsMuseum(postsMuseumArray);
       })
       .catch((e) => console.log('Error getting characters from the api...', e));
@@ -33,7 +34,7 @@ export default function Blog() {
         .delete(`https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/museumgallery/${id}.json`)
         .then(() => {
           setPostsMuseum((prevPosts) => prevPosts.filter((post) => post.id !== id));
-          console.log(`Deleted museum with id ${id}`);
+         
         })
         .catch((e) => console.log('Error deleting museum...', e));
     };
@@ -45,15 +46,15 @@ export default function Blog() {
       .get("https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/secondhand.json")
       .then((response) => {
         
-        console.log("Secondhand API data:", response.data);
+       
         const postsSecondHandObj = response.data || {};
         const postsSecondHandArray = Object.keys(postsSecondHandObj).map((id) => ({
           id,
           ...postsSecondHandObj[id],
         }));
         setPostsSecondHand(postsSecondHandArray);
-        console.log("..........")
-        console.log(postsSecondHandArray)
+        
+       
       })
       .catch((e) => console.log('Error getting characters from the api...', e));
     }, []);
@@ -65,7 +66,7 @@ export default function Blog() {
         .delete(`https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/secondhand/${id}.json`)
         .then(() => {
           setPostsSecondHand((prevPosts) => prevPosts.filter((post) => post.id !== id));
-          console.log(`Deleted second hand with id ${id}`);
+         
         })
         .catch((e) => console.log('Error deleting friperie...', e));
     };
@@ -75,7 +76,7 @@ export default function Blog() {
   axios
     .get("https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/restaurant.json")
     .then((response) => {
-      console.log("Restaurants API data:", response.data);
+     
       const postsRestaurantObj = response.data || {};
       const postsRestaurantArray = Object.keys(postsRestaurantObj).map((id) => ({
         id,
@@ -87,8 +88,22 @@ export default function Blog() {
   }, []);
    
 
+  const handleDeleteRestaurants = (id) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this second hand shop?");
+    if (!confirmDelete) return;
+    axios
+      .delete(`https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/restaurant/${id}.json`)
+      .then(() => {
+        setPostsRestaurant((prevPosts) => prevPosts.filter((post) => post.id !== id));
+       
+      })
+      .catch((e) => console.log('Error deleting friperie...', e));
+  };
+
   return (
+    
     <div>
+      
       <h1>Paris Museums and Galleries</h1>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
         {postsMuseum.map((post) => (
@@ -103,6 +118,7 @@ export default function Blog() {
               borderRadius: "8px",
             }}
           >
+            <Link to = {`/MuseumPosts/${post.id}`}>
             <p>
               <strong>Name:</strong> {post.title}
             </p>
@@ -119,14 +135,20 @@ export default function Blog() {
             <p>
               <strong>Tip:</strong> {post.tip}
             </p>
+            </Link>
             <div>
-            <button>Edit</button> <button onClick={() => handleDeleteMuseum(post.id)}>Delete</button>
+            <Link to = "/EditBlogs">
+            <button>Edit</button> </Link> <button onClick={() => handleDeleteMuseum(post.id)}>Delete</button>
+            
             </div>
             
-            
+           
           </div>
+          
         ))}
+       
       </div>
+      
 
       <h1>Paris second-hand stores and nice spots</h1>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
@@ -141,6 +163,7 @@ export default function Blog() {
               borderRadius: "8px",
             }}
           >
+            <Link to = {`/FriperiesPosts/${post2.id}`}>
             <p>
               <strong>Name:</strong> {post2.title}
             </p>
@@ -152,6 +175,7 @@ export default function Blog() {
             <p>
               <strong>Tip:</strong> {post2.tip}
             </p>
+            </Link>
             <div>
 
               <button>Edit</button> <button onClick={() => handleDeleteFriperies(post2.id)}>Delete</button>
@@ -173,16 +197,20 @@ export default function Blog() {
               width: "300px",
               borderRadius: "8px",
             }}
-          >
+          ><Link to = {`/RestaurantsPosts/${post3.id}`}>
             <p>
               <strong>Name:</strong> {post3.title}
             </p>
             <p>{post3.description}</p>
             <p>
-              <strong>:round_pushpin:</strong> {post3.Adress}
+              📍{post3.adress}
             </p>
+            </Link>
+            <Link to = "/EditBlogs">
+            <button>Edit</button> </Link><button onClick={() => handleDeleteRestaurants(post3.id)}>Delete</button>
           </div>
-        ))}
+          
+))}
       </div>
     </div>
   );
