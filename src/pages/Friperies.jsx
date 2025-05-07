@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../Config/api";
+import { Link } from "react-router-dom";
 
 function Friperies() {
   const [postsSecondHand, setPostsSecondHand] = useState([]);
@@ -49,16 +50,10 @@ function Friperies() {
               width: "300px",
               borderRadius: "8px",
             }}
-          >
+          ><Link to={`/FriperiesPosts/${post.id}`}>
             <p>
               <strong>Name:</strong> {post.title}
             </p>
-            <img
-              src={post.img}
-              alt={post.title}
-              width="100%"
-              style={{ borderRadius: "4px" }}
-            />
             <p>{post.description}</p>
             <p>
               <strong>Highlight:</strong> {post.highlight}
@@ -66,8 +61,11 @@ function Friperies() {
             <p>
               <strong>Tip:</strong> {post.tip}
             </p>
+            </Link>
             <div>
-              <button>Edit</button> <button onClick={() => handleDeleteFriperies(post.id)} >Delete</button>
+            <Link to={`/EditBlogFriperies/${post.id}`}>
+                <button>Edit</button>
+              </Link> <button onClick={() => handleDeleteFriperies(post.id)} >Delete</button>
             </div>
           </div>
         ))}

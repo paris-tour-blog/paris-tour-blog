@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../Config/api";
+import { Link } from "react-router-dom";
 
 function Museums() {
   const [Museums, setMuseums] = useState([]);
@@ -51,8 +52,9 @@ function Museums() {
               width: "300px",
               borderRadius: "8px",
             }}
-          >
+          > <Link to={`/MuseumPosts/${post.id}`}>
             <p>
+           
               <strong>Name:</strong> {post.title}
             </p>
             <img
@@ -68,8 +70,11 @@ function Museums() {
             <p>
               <strong>Tip:</strong> {post.tip}
             </p>
+            </Link>
             <div>
-              <button>Edit</button> <button onClick={() => handleDeleteMuseum(post.id)}>Delete</button>
+            <Link to={`/EditBlogs/${post.id}`}>
+                <button>Edit</button>
+              </Link> <button onClick={() => handleDeleteMuseum(post.id)}>Delete</button>
             </div>
           </div>
         ))}

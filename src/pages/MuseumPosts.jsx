@@ -29,7 +29,6 @@ function MuseumPostDetails() {
             <div className="blog-post" >
                 <h1>{post.title}</h1>
                 <img src ={post.img}/>
-                <p>Description: {post.description}</p>
                 <p> <strong>Highlight:</strong> {post.highlight}</p>
                 <p> {post.text}</p>
                 <p><strong>Tip:</strong>{post.tip}</p>

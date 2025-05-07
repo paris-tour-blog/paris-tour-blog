@@ -102,7 +102,7 @@ export default function Blog() {
 
   return (
     <div>
-      <h1>Paris Museums and Galleries</h1>
+      <h1>Museums and Galleries</h1>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
         {postsMuseum.map((post) => (
           <div
@@ -119,10 +119,12 @@ export default function Blog() {
               <p>
                 <strong>Name:</strong> {post.title}
               </p>
-              <img
+              <img 
                 src={post.img}
                 alt={post.title}
-                width="100%"
+                width="270px"
+                height="200px"
+                objectFit= "cover"
                 style={{ borderRadius: "4px" }}
               />
               <p>{post.description}</p>
@@ -145,7 +147,7 @@ export default function Blog() {
         ))}
       </div>
 
-      <h1>Paris second-hand stores and nice spots</h1>
+      <h1>Second-hand stores noteworthy spots</h1>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
         {postsSecondHand.map((post2) => (
           <div
@@ -172,7 +174,9 @@ export default function Blog() {
               </p>
             </Link>
             <div>
-              <button>Edit</button>{" "}
+            <Link to={`/EditBlogFriperies/${post2.id}`}>
+                <button>Edit</button>
+              </Link>{" "}
               <button onClick={() => handleDeleteFriperies(post2.id)}>
                 Delete
               </button>
@@ -200,9 +204,9 @@ export default function Blog() {
               <p>{post3.description}</p>
               <p>📍{post3.adress}</p>
             </Link>
-            <Link to="/EditBlogs">
-              <button>Edit</button>{" "}
-            </Link>
+            <Link to={`/EditBlogRestaurant/${post3.id}`}>
+                <button>Edit</button>
+              </Link>
             <button onClick={() => handleDeleteRestaurants(post3.id)}>
               Delete
             </button>

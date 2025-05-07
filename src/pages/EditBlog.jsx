@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { Textarea } from "@mantine/core";
 
 function EditBlogs() {
   const { id } = useParams();
@@ -14,7 +15,9 @@ function EditBlogs() {
   useEffect(() => {
     if (id) {
       axios
-        .get(`https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/museumgallery/${id}.json`)
+        .get(
+          `https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/museumgallery/${id}.json`
+        )
         .then((response) => {
           const data = response.data;
           if (data) {
@@ -43,7 +46,10 @@ function EditBlogs() {
     };
 
     axios
-      .put(`https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/museumgallery/${id}.json`, updatedMuseumEntry)
+      .put(
+        `https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/museumgallery/${id}.json`,
+        updatedMuseumEntry
+      )
       .then((response) => {
         console.log("Update successful:", response.data);
         navigate("/blog");
@@ -54,8 +60,9 @@ function EditBlogs() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h1>Edit Blog:</h1>
+        <h1>Edit Museum:</h1>
         <label>
+          <strong>Museum Name: </strong>
           <input
             name="title"
             placeholder="Title"
@@ -63,33 +70,41 @@ function EditBlogs() {
             onChange={(e) => setMuseumTitle(e.target.value)}
           />
         </label>
+        <strong>Content: </strong>
         <label>
-          <input
+        <textarea 
             name="text"
+            rows={4} cols={60}
             placeholder="Text"
             value={editMuseumText}
             onChange={(e) => setEditMuseumText(e.target.value)}
-          />
+            />
         </label>
+        <strong>Highlight: </strong>
         <label>
-          <input
+        <textarea 
             name="highlight"
+            rows={4} cols={40}
             placeholder="Modify Highlight"
             value={editMuseumHigh}
             onChange={(e) => setEditMuseumHigh(e.target.value)}
           />
         </label>
+        <strong>Tip: </strong>
         <label>
-          <input
+        <textarea
             name="tip"
+            rows={4} cols={30}
             placeholder="Modify Tip"
             value={editMuseumTip}
             onChange={(e) => setEditMuseumTip(e.target.value)}
           />
         </label>
+        <strong>Description: </strong>
         <label>
-          <input
+        <textarea
             name="description"
+            rows={4} cols={20}
             placeholder="Modify Description"
             value={editMuseumDesc}
             onChange={(e) => setEditMuseumDesc(e.target.value)}
