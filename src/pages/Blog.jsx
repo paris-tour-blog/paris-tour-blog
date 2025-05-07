@@ -101,13 +101,10 @@ export default function Blog() {
   };
 
   return (
-    
     <div>
-      
       <h1>Paris Museums and Galleries</h1>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
         {postsMuseum.map((post) => (
-          
           <div
             className="card"
             key={post.id}
@@ -118,37 +115,35 @@ export default function Blog() {
               borderRadius: "8px",
             }}
           >
-            <Link to = {`/MuseumPosts/${post.id}`}>
-            <p>
-              <strong>Name:</strong> {post.title}
-            </p>
-            <img
-              src={post.img}
-              alt={post.title}
-              width="100%"
-              style={{ borderRadius: "4px" }}
-            />
-            <p>{post.description}</p>
-            <p>
-              <strong>Highlight:</strong> {post.highlight}
-            </p>
-            <p>
-              <strong>Tip:</strong> {post.tip}
-            </p>
+            <Link to={`/MuseumPosts/${post.id}`}>
+              <p>
+                <strong>Name:</strong> {post.title}
+              </p>
+              <img
+                src={post.img}
+                alt={post.title}
+                width="100%"
+                style={{ borderRadius: "4px" }}
+              />
+              <p>{post.description}</p>
+              <p>
+                <strong>Highlight:</strong> {post.highlight}
+              </p>
+              <p>
+                <strong>Tip:</strong> {post.tip}
+              </p>
             </Link>
             <div>
-            <Link to = "/EditBlogs">
-            <button>Edit</button> </Link> <button onClick={() => handleDeleteMuseum(post.id)}>Delete</button>
-            
+              <Link to={`/EditBlogs/${post.id}`}>
+                <button>Edit</button>
+              </Link>{" "}
+              <button onClick={() => handleDeleteMuseum(post.id)}>
+                Delete
+              </button>
             </div>
-            
-           
           </div>
-          
         ))}
-       
       </div>
-      
 
       <h1>Paris second-hand stores and nice spots</h1>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
@@ -163,26 +158,26 @@ export default function Blog() {
               borderRadius: "8px",
             }}
           >
-            <Link to = {`/FriperiesPosts/${post2.id}`}>
-            <p>
-              <strong>Name:</strong> {post2.title}
-            </p>
-            
-            <p>{post2.description}</p>
-            <p>
-              <strong>Highlight:</strong> {post2.highlight}
-            </p>
-            <p>
-              <strong>Tip:</strong> {post2.tip}
-            </p>
+            <Link to={`/FriperiesPosts/${post2.id}`}>
+              <p>
+                <strong>Name:</strong> {post2.title}
+              </p>
+
+              <p>{post2.description}</p>
+              <p>
+                <strong>Highlight:</strong> {post2.highlight}
+              </p>
+              <p>
+                <strong>Tip:</strong> {post2.tip}
+              </p>
             </Link>
             <div>
-
-              <button>Edit</button> <button onClick={() => handleDeleteFriperies(post2.id)}>Delete</button>
+              <button>Edit</button>{" "}
+              <button onClick={() => handleDeleteFriperies(post2.id)}>
+                Delete
+              </button>
             </div>
-
           </div>
-
         ))}
       </div>
       <h1>Restaurants</h1>
@@ -197,20 +192,22 @@ export default function Blog() {
               width: "300px",
               borderRadius: "8px",
             }}
-          ><Link to = {`/RestaurantsPosts/${post3.id}`}>
-            <p>
-              <strong>Name:</strong> {post3.title}
-            </p>
-            <p>{post3.description}</p>
-            <p>
-              📍{post3.adress}
-            </p>
+          >
+            <Link to={`/RestaurantsPosts/${post3.id}`}>
+              <p>
+                <strong>Name:</strong> {post3.title}
+              </p>
+              <p>{post3.description}</p>
+              <p>📍{post3.adress}</p>
             </Link>
-            <Link to = "/EditBlogs">
-            <button>Edit</button> </Link><button onClick={() => handleDeleteRestaurants(post3.id)}>Delete</button>
+            <Link to="/EditBlogs">
+              <button>Edit</button>{" "}
+            </Link>
+            <button onClick={() => handleDeleteRestaurants(post3.id)}>
+              Delete
+            </button>
           </div>
-          
-))}
+        ))}
       </div>
     </div>
   );

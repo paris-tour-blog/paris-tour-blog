@@ -46,7 +46,7 @@ function EditBlogs() {
       .put(`https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/museumgallery/${id}.json`, updatedMuseumEntry)
       .then((response) => {
         console.log("Update successful:", response.data);
-        navigate("/");
+        navigate("/blog");
       })
       .catch((e) => console.log("Error updating the entry:", e));
   };
@@ -58,7 +58,7 @@ function EditBlogs() {
         <label>
           <input
             name="title"
-            placeholder="Modify title"
+            placeholder="Title"
             value={editMuseumTitle}
             onChange={(e) => setMuseumTitle(e.target.value)}
           />
@@ -66,7 +66,7 @@ function EditBlogs() {
         <label>
           <input
             name="text"
-            placeholder="Modify text"
+            placeholder="Text"
             value={editMuseumText}
             onChange={(e) => setEditMuseumText(e.target.value)}
           />
