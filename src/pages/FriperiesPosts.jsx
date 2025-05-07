@@ -29,10 +29,8 @@ function FriperiesDetails() {
             <div className="blog-post">
                 <h1>{post.title}</h1>
                 <img src ={post.img}/>
-                <p>Description: {post.description}</p>
                 <p> {post.text}</p>
-                <p> {post.highlight}</p>
-                <p>Tip:{post.tip}</p>
+                <p><strong>Tip: </strong>{post.tip}</p>
             </div>
             <button>Like</button> <button>Edit</button> <Link to="/blog"> <button>Back</button>
             </Link>

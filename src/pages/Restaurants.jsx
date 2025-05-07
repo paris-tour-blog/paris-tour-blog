@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import HomePage from "./HomePage";
 import { Link } from "react-router-dom";
-import Museums from "./Museums";
+import { API_URL } from "../Config/api";
+
 
 
 
@@ -25,6 +26,18 @@ function Restaurants(){
           .catch((e) => console.log('Error getting restaurants from the api...', e));
         }, []);
 
+        const handleDeleteRestaurant = (id) => {
+          const confirmDelete = window.confirm("Are you sure you want to delete this restaurant?");
+          if (!confirmDelete) return;
+          axios
+            .delete(`${API_URL}/restaurant/${id}.json`)
+            .then(() => {
+              setPostsRestaurant((prevPosts) => prevPosts.filter((post3) => post3.id !== id));
+              console.log(`Deleted restaurant with id ${id}`);
+            })
+            .catch((e) => console.log('Error deleting restaurant...', e));
+        };
+
 
         return (
             <div>
@@ -41,13 +54,20 @@ function Restaurants(){
                       borderRadius: "8px",
                     }}
                   >
+                    <Link to={`/RestaurantsPosts/${post3.id}`}>
                     <p>
                       <strong>Name:</strong> {post3.title}
                     </p>
                     <p>{post3.description}</p>
-                    <p>
-                      <strong>:round_pushpin:</strong> {post3.Adress}
-                    </p>
+                    <div>
+                    <p>📍{post3.adress}</p>
+                    </div>
+                    </Link>
+                    <div>
+                    <Link to={`/EditBlogRestaurant/${post3.id}`}>
+                <button>Edit</button>
+              </Link> <button onClick={() => handleDeleteRestaurant(post3.id)}>Delete</button>
+            </div>
                   </div>
                 ))}
               </div>

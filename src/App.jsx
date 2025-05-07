@@ -17,6 +17,10 @@ import MuseumPosts from './pages/MuseumPosts.jsx';
 import FriperiesPosts from './pages/FriperiesPosts.jsx';
 import RestaurantsPosts from './pages/RestaurantsPosts.jsx';
 import EditBlogs from './pages/EditBlog.jsx';
+import '@mantine/core/styles.css';
+import { MantineProvider } from '@mantine/core';
+import EditBlogFriperies from './pages/EditBlogFriperies.jsx';
+import EditBlogRestaurant from './pages/EditBlogRestaurant.jsx'
 
 function App() {
   
@@ -24,7 +28,7 @@ function App() {
   return (
     <>
 
-   
+<MantineProvider>
     
     
     
@@ -43,12 +47,15 @@ function App() {
         <Route path="/MuseumPosts/:id" element={<MuseumPosts  />} />
         <Route path="/FriperiesPosts/:id" element={<FriperiesPosts />} />
         <Route path="/RestaurantsPosts/:id" element={<RestaurantsPosts />} />
-        <Route path="/EditBlogs" element={<EditBlogs />} />
+        <Route path="/EditBlogs/:id" element={<EditBlogs />} />
+        <Route path="/EditBlogFriperies/:id" element={<EditBlogFriperies />} />
+        <Route path="/EditBlogRestaurant/:id" element={<EditBlogRestaurant />} />
 
         
       </Routes>
 
       <Footer />
+      </MantineProvider>
     </>
   )
 }
