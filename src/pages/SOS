@@ -1,0 +1,155 @@
+
+	  {filteredMuseum.map((museumObj) => (
+		<div
+		  className="card"
+		  key={museumObj.id}
+		  style={{
+			border: "1px solid #ccc",
+			padding: "10px",
+			width: "300px",
+			borderRadius: "8px",
+		  }}
+		>
+       {filteredFriperie.map((friperieObj) => (
+		<div
+		  className="card"
+		  key={friperieObj.id}
+		  style={{
+			border: "1px solid #ccc",
+			padding: "10px",
+			width: "300px",
+			borderRadius: "8px",
+		  }}
+		>
+       {filteredRestaurant.map((restauObj) => (
+		<div
+		  className="card"
+		  key={restauObj.id}
+		  style={{
+			border: "1px solid #ccc",
+			padding: "10px",
+			width: "300px",
+			borderRadius: "8px",
+		  }}
+		>
+		  <p><strong>Name:</strong> {museumObj.title}</p>
+		  <p>{museumObj.description}</p>
+		</div>
+	  ))}
+			
+
+			<h1>Museums and Galleries</h1>
+			<div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+				{postsMuseum.map((post) => (
+					<div
+						className="card"
+						key={post.id}
+						style={{
+							border: "1px solid #ccc",
+							padding: "10px",
+							width: "300px",
+							borderRadius: "8px",
+						}}
+					>
+						<Link to={`/MuseumPosts/${post.id}`}>
+							<p>
+								<strong>Name:</strong> {post.title}
+							</p>
+							<img
+								src={post.img}
+								alt={post.title}
+								width="270px"
+								height="200px"
+								objectFit="cover"
+								style={{ borderRadius: "4px" }}
+							/>
+							<p>{post.description}</p>
+							<p>
+								<strong>Highlight:</strong> {post.highlight}
+							</p>
+							<p>
+								<strong>Tip:</strong> {post.tip}
+							</p>
+						</Link>
+						<div>
+							<Link to={`/EditBlogs/${post.id}`}>
+								<button>Edit</button>
+							</Link>{" "}
+							<button onClick={() => handleDeleteMuseum(post.id)}>
+								Delete
+							</button>
+						</div>
+					</div>
+				))}
+			</div>
+
+			<h1>Second-hand stores noteworthy spots</h1>
+			<div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+				{postsSecondHand.map((post2) => (
+					<div
+						className="card"
+						key={post2.id}
+						style={{
+							border: "1px solid #ccc",
+							padding: "10px",
+							width: "300px",
+							borderRadius: "8px",
+						}}
+					>
+						<Link to={`/FriperiesPosts/${post2.id}`}>
+							<p>
+								<strong>Name:</strong> {post2.title}
+							</p>
+
+							<p>{post2.description}</p>
+							<p>
+								<strong>Highlight:</strong> {post2.highlight}
+							</p>
+							<p>
+								<strong>Tip:</strong> {post2.tip}
+							</p>
+						</Link>
+						<div>
+							<Link to={`/EditBlogFriperies/${post2.id}`}>
+								<button>Edit</button>
+							</Link>{" "}
+							<button onClick={() => handleDeleteFriperies(post2.id)}>
+								Delete
+							</button>
+						</div>
+					</div>
+				))}
+			</div>
+			<h1>Restaurants</h1>
+			<div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+				{postsRestaurant.map((post3) => (
+					<div key={post3.id}>
+						<div
+							className="card"
+							style={{
+								border: "1px solid #ccc",
+								padding: "10px",
+								width: "300px",
+								borderRadius: "8px",
+							}}
+						>
+							<Link to={`/RestaurantsPosts/${post3.id}`}>
+								<p>
+									<strong>Name:</strong> {post3.title}
+								</p>
+								<p>{post3.description}</p>
+								<p>📍{post3.adress}</p>
+							</Link>
+							<Link to={`/EditBlogRestaurant/${post3.id}`}>
+								<button>Edit</button>
+							</Link>
+							<button onClick={() => handleDeleteRestaurants(post3.id)}>
+								Delete
+							</button>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	);
+}
