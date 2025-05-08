@@ -8,6 +8,7 @@ function CreateBlogPostRestaurant() {
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
+    const [adress, setAdress]= useState("")
 
     const navigate = useNavigate()
 
@@ -18,6 +19,7 @@ function CreateBlogPostRestaurant() {
         const newPost = {
             "title": title,
             "description": description,
+            "adress": adress
         }
 
         axios.post("https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/restaurant.json", newPost)
@@ -56,7 +58,16 @@ function CreateBlogPostRestaurant() {
                         onChange={(e) => { setDescription(e.target.value) }}
                     />
                 </label>
-
+                <label>
+                    Adress:
+                    <input
+                        type="text"
+                        name="description"
+                        placeholder="enter the description"
+                        value={adress}
+                        onChange={(e) => { setAdress(e.target.value) }}
+                    />
+                </label>
                 <button>Create</button>
 
             </form>

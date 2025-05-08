@@ -8,6 +8,7 @@ function CreateBlogPostFriperie() {
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
+    const [tip, setTip] = useState("");
 
     const navigate = useNavigate()
 
@@ -18,6 +19,7 @@ function CreateBlogPostFriperie() {
         const newPost = {
             "title": title,
             "description": description,
+            "tip": tip,
         }
 
         axios.post("https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/secondhand.json", newPost)
@@ -54,6 +56,16 @@ function CreateBlogPostFriperie() {
                         placeholder="enter the description"
                         value={description}
                         onChange={(e) => { setDescription(e.target.value) }}
+                    />
+                </label>
+                <label>
+                    Tip:
+                    <input
+                        type="text"
+                        name="description"
+                        placeholder="enter the description"
+                        value={tip}
+                        onChange={(e) => { setTip(e.target.value) }}
                     />
                 </label>
 

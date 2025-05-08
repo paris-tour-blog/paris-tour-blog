@@ -30,7 +30,7 @@ function RestaurantsDetails() {
                 <p>Description: {post.description}</p>
                 <p> {post.adress}</p>
             </div>
-            <button>Like</button> <button>Edit</button> <Link to="/blog"> <button>Back</button>
+             <button>Edit</button> <Link to="/blog"> <button>Back</button>
             </Link>
         </div>
     );

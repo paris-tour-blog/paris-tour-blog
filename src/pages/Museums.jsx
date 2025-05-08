@@ -60,8 +60,9 @@ function Museums() {
             <img
               src={post.img}
               alt={post.title}
-              width="100%"
-              style={{ borderRadius: "4px" }}
+              width="270px"
+              height="200px"
+              style={{ objectFit: "cover", borderRadius: "4px" }}
             />
             <p>{post.description}</p>
             <p>

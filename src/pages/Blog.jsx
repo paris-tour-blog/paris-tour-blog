@@ -100,8 +100,9 @@ export default function Blog() {
 			postsRestaurant.filter(
 				(post) =>
 					post.title.toLowerCase().includes(value) ||
-					post.description.toLowerCase().includes(value) ||
-					post.adress.toLowerCase().includes(value)
+					post.description.toLowerCase().includes(value) 
+          /*||
+					post.adress.toLowerCase().includes(value)*/
 			)
 		);
 	};
