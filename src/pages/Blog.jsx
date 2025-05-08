@@ -108,7 +108,7 @@ export default function Blog() {
 	};
 
 	return (
-		<div>
+		<div style={{ paddingTop: "30px", margin: "85px"}}>
 			<SearchBar onChange={onChange} />
 			<h1>Museums and Galleries</h1>
 			<div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>

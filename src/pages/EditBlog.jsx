@@ -57,7 +57,7 @@ function EditBlogs() {
   };
 
   return (
-    <div>
+    <div className="edit-blog">
       <form onSubmit={handleSubmit}>
         <h1>Edit Museum:</h1>
         <label>

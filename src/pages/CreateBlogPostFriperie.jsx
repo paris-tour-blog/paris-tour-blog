@@ -31,7 +31,7 @@ function CreateBlogPostFriperie() {
 
 
     return (
-        <div className="CreateBlogPostFriperie">
+        <div className="CreateBlog">
             
             <h3>Add A Friperie</h3>
 

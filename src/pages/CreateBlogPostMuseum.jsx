@@ -34,7 +34,7 @@ function CreateBlogPostMuseum() {
 	};
 
 	return (
-		<div className="CreateBlogPostMuseum">
+		<div className="CreateBlog">
 			<h3>Add Museum Or Gallery</h3>
 
 			<form onSubmit={handleSubmit}>

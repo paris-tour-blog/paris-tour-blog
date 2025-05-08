@@ -31,7 +31,7 @@ function CreateBlogPostRestaurant() {
 
 
     return (
-        <div className="CreateBlogPostMuseum">
+        <div className="CreateBlog">
             
             <h3>Add A Restaurant</h3>
 

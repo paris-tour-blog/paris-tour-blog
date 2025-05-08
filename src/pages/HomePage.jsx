@@ -6,13 +6,23 @@ function HomePage() {
   
     return (
     
-    <div>
-      <div>
+    <div className="homepage" style={{ backgroundSize: "cover", backgroundPosition: "center" }}>
+     
         <h1>Les Parisiens</h1>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <Link to="/blog">
           <button>Go to Blog</button>
         </Link>
-      </div>
+    
     </div>
 
      

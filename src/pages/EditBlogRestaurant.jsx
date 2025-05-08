@@ -52,7 +52,7 @@ function EditBlogRestaurant() {
     .catch((e) => console.log("Error updating the entry:", e));
 };
 return (
-    <div>
+    <div className="edit-blog">
     <form onSubmit={handleSubmit}>
         <h1>Edit Restaurant:</h1>
         <label>

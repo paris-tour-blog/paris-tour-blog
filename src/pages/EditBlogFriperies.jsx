@@ -58,7 +58,7 @@ function EditBlogFriperies() {
     .catch((e) => console.log("Error updating the entry:", e));
 };
 return (
-    <div>
+    <div className="edit-blog">
     <form onSubmit={handleSubmit}>
         <h1>Edit Blog:</h1>
         <label>
