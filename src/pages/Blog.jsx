@@ -161,6 +161,13 @@ export default function Blog() {
 					>
 						<Link to={`/FriperiesPosts/${post2.id}`}>
 							<p><strong>Name:</strong> {post2.title}</p>
+              <img
+								src={post2.img}
+								alt={post2.title}
+								width="270px"
+								height="200px"
+								style={{ objectFit: "cover", borderRadius: "4px" }}
+							/>
 							<p>{post2.description}</p>
 							<p><strong>Highlight:</strong> {post2.highlight}</p>
 							<p><strong>Tip:</strong> {post2.tip}</p>
@@ -190,6 +197,13 @@ export default function Blog() {
 					>
 						<Link to={`/RestaurantsPosts/${post3.id}`}>
 							<p><strong>Name:</strong> {post3.title}</p>
+              <img
+								src={post3.img}
+								alt={post3.title}
+								width="270px"
+								height="200px"
+								style={{ objectFit: "cover", borderRadius: "4px" }}
+							/>
 							<p>{post3.description}</p>
 							<p>📍{post3.adress}</p>
 						</Link>

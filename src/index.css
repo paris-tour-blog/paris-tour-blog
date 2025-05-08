@@ -21,11 +21,17 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  display: grid;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url('https://wallpapers.com/images/featured/paris-zy4x2ow5p7j5qi4a.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
 }
+
 
 h1 {
   font-size: 3.2em;
@@ -53,12 +59,73 @@ button:focus-visible {
 
 
 .Navbar {
-  padding: 10px;
+  padding: 15px 30px;
+  background-color: #ffffffcc; /* translucent white */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 10px;
 }
 
 .navbar-buttons {
   display: flex;
   align-items: center;
+  gap: 20px;
+}
+
+.navbar-buttons a button,
+.accordion > button {
+  background-color: #3480fb;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 50px;
+  font-size: 0.9em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar-buttons a button:hover,
+.accordion > button:hover {
+  background-color: #1f64d5;
+  transform: translateY(-2px);
+}
+.accordion-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  margin-top: 8px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.accordion:hover .accordion-content,
+.accordion-content.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.accordion-content a button {
+  background: none;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 8px;
+  width: 100%;
+  text-align: left;
+}
+
+.accordion-content a button:hover {
+  background-color: #f0f0f0;
+  color: #3480fb;
 }
 
 .navbar-buttons button {
@@ -111,7 +178,31 @@ button:focus-visible {
 .blog-post strong {
   color: #e63946;  
 }
+/* Make Navbar stack on small screens */
+@media (max-width: 768px) {
+  .navbar-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
 
+  .Navbar {
+    padding: 10px 20px;
+  }
+
+  .navbar-buttons a button,
+  .accordion > button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .accordion-content {
+    position: static;
+    margin-top: 5px;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}
 
 
 
