@@ -27,10 +27,19 @@ function RestaurantsDetails() {
         <div>
             <div className="blog-post">
                 <h1>{post.title}</h1>
-                <p>Description: {post.description}</p>
+                <img
+              src={post.img}
+              alt= "restaurant"
+              width="270px"
+              height="200px"
+              style={{ objectFit: "cover", borderRadius: "4px" }}
+            />
+                <p><strong>Description:</strong> {post.description}</p>
                 <p> {post.adress}</p>
             </div>
-             <button>Edit</button> <Link to="/blog"> <button>Back</button>
+            <Link to={`/EditBlogRestaurant/${id}`}>
+                <button>Edit</button>
+              </Link> <Link to="/blog"> <button>Back</button>
             </Link>
         </div>
     );

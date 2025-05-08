@@ -10,6 +10,7 @@ function EditBlogFriperies() {
   const [editFriperiesHigh, setEditFriperiesHigh] = useState("");
   const [editFriperiesTip, setEditFriperiesTip] = useState("");
   const [editFriperiesDesc, setEditFriperiesDesc] = useState("");
+  const [editFriperieImg, setEditFriperieImg] = useState ("");
   const navigate = useNavigate();
 
 
@@ -27,6 +28,7 @@ function EditBlogFriperies() {
             setEditFriperiesHigh(data.highlight || "");
             setEditFriperiesTip(data.tip || "");
             setEditFriperiesDesc(data.description || "");
+            setEditFriperieImg(data.img || "");
           } else {
             console.log("No data found for this id.");
           }
@@ -44,6 +46,7 @@ function EditBlogFriperies() {
       highlight: editFriperiesHigh,
       tip: editFriperiesTip,
       description: editFriperiesDesc,
+      img: editFriperieImg,
     };
 
     axios
@@ -108,6 +111,15 @@ return (
             placeholder="Modify Description"
             value={editFriperiesDesc}
             onChange={(e) => setEditFriperiesDesc(e.target.value)}
+          />
+        </label>
+        <strong>Photo: </strong>
+        <label>
+        <input
+            name="url"
+            placeholder="Add a photo"
+            value={editFriperieImg}
+            onChange={(e) => setEditFriperieImg(e.target.value)}
           />
         </label>
         <button type="submit">Submit</button>

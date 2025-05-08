@@ -6,9 +6,10 @@ import { useNavigate } from "react-router-dom"
 
 function CreateBlogPostFriperie() {
 
-    const [title, setTitle] = useState("")
-    const [description, setDescription] = useState("")
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
     const [tip, setTip] = useState("");
+    const [img, setImg] = useState ("");
 
     const navigate = useNavigate()
 
@@ -20,6 +21,7 @@ function CreateBlogPostFriperie() {
             "title": title,
             "description": description,
             "tip": tip,
+            "img": img,
         }
 
         axios.post("https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/secondhand.json", newPost)
@@ -38,7 +40,7 @@ function CreateBlogPostFriperie() {
             <form onSubmit={handleSubmit}>
 
                 <label>
-                    Title:
+                <strong>Title:</strong> 
                     <input
                         type="text"
                         name="title"
@@ -49,7 +51,7 @@ function CreateBlogPostFriperie() {
                 </label>
 
                 <label>
-                    Description:
+                <strong>Description:</strong> 
                     <input
                         type="text"
                         name="description"
@@ -59,13 +61,23 @@ function CreateBlogPostFriperie() {
                     />
                 </label>
                 <label>
-                    Tip:
+                <strong>Tip:</strong> 
                     <input
                         type="text"
                         name="description"
                         placeholder="enter the description"
                         value={tip}
                         onChange={(e) => { setTip(e.target.value) }}
+                    />
+                </label>
+                <label>
+                 <strong>Photo:</strong> 
+                    <input
+                        type="url"
+                        name="photo"
+                        placeholder="add a photo"
+                        value={img}
+                        onChange={(e) => { setImg(e.target.value) }}
                     />
                 </label>
 

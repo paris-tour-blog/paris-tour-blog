@@ -8,6 +8,7 @@ function CreateBlogPostMuseum() {
 	const [text, setText] = useState("");
 	const [highlight, setHighlight] = useState("");
 	const [tip, setTip] = useState("");
+	const [img, setImg] = useState ("");
 
 	const navigate = useNavigate();
 
@@ -20,6 +21,7 @@ function CreateBlogPostMuseum() {
 			text: text,
 			highlight: highlight,
 			tip: tip,
+			img: img
 		};
 
 		axios
@@ -96,6 +98,18 @@ function CreateBlogPostMuseum() {
 						value={tip}
 						onChange={(e) => {
 							setTip(e.target.value);
+						}}
+					/>
+				</label>
+				<label>
+				<strong>Photo:</strong>
+					<input
+						type="url"
+						name="photo"
+						placeholder="add a photo"
+						value={img}
+						onChange={(e) => {
+							setImg(e.target.value);
 						}}
 					/>
 				</label>

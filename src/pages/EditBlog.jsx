@@ -9,6 +9,7 @@ function EditBlogs() {
   const [editMuseumHigh, setEditMuseumHigh] = useState("");
   const [editMuseumTip, setEditMuseumTip] = useState("");
   const [editMuseumDesc, setEditMuseumDesc] = useState("");
+  const [editMuseumImg, setEditMuseumImg] = useState ("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,6 +26,7 @@ function EditBlogs() {
             setEditMuseumHigh(data.highlight || "");
             setEditMuseumTip(data.tip || "");
             setEditMuseumDesc(data.description || "");
+            setEditMuseumImg(data.img || "");
           } else {
             console.log("No data found for this id.");
           }
@@ -42,6 +44,7 @@ function EditBlogs() {
       highlight: editMuseumHigh,
       tip: editMuseumTip,
       description: editMuseumDesc,
+      img: editMuseumImg,
     };
 
     axios
@@ -107,6 +110,15 @@ function EditBlogs() {
             placeholder="Modify Description"
             value={editMuseumDesc}
             onChange={(e) => setEditMuseumDesc(e.target.value)}
+          />
+        </label>
+        <strong>Photo:</strong>
+        <label>
+        <input
+            name="url"
+            placeholder="Modify Description"
+            value={editMuseumImg}
+            onChange={(e) => setEditMuseumImg(e.target.value)}
           />
         </label>
         <button type="submit">Submit</button>

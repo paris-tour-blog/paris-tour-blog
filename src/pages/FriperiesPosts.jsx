@@ -37,7 +37,9 @@ function FriperiesDetails() {
 					{post.tip}
 				</p>
 			</div>
-			 <button>Edit</button>{" "}
+			<Link to={`/EditBlogFriperies/${id}`}>
+                <button>Edit</button>
+              </Link>{" "}
 			<Link to="/blog">
 				{" "}
 				<button>Back</button>

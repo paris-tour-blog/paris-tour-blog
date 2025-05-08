@@ -29,7 +29,7 @@ function MuseumPostDetails() {
 			<div className="blog-post">
 				<h1>{post.title}</h1>
 				<img
-					src={post.img}
+					src= {post.img}
 					width="270px"
 					height="200px"
 					style={{ objectFit: "cover", borderRadius: "4px" }}

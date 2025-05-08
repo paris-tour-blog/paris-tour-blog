@@ -9,6 +9,7 @@ function CreateBlogPostRestaurant() {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [adress, setAdress]= useState("")
+    const [img, setImg] = useState ("")
 
     const navigate = useNavigate()
 
@@ -19,7 +20,8 @@ function CreateBlogPostRestaurant() {
         const newPost = {
             "title": title,
             "description": description,
-            "adress": adress
+            "adress": adress,
+            "img": img,
         }
 
         axios.post("https://parisguideproject-default-rtdb.europe-west1.firebasedatabase.app/restaurant.json", newPost)
@@ -63,9 +65,19 @@ function CreateBlogPostRestaurant() {
                     <input
                         type="text"
                         name="description"
-                        placeholder="enter the description"
+                        placeholder="enter the address"
                         value={adress}
                         onChange={(e) => { setAdress(e.target.value) }}
+                    />
+                </label>
+                <label>
+                    Photo:
+                    <input
+                        type="url"
+                        name="image"
+                        placeholder="URL"
+                        value={img}
+                        onChange={(e) => { setImg(e.target.value) }}
                     />
                 </label>
                 <button>Create</button>
