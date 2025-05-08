@@ -93,7 +93,6 @@ export default function Blog() {
 				(post) =>
 					post.title.toLowerCase().includes(value) ||
 					post.description.toLowerCase().includes(value) ||
-					post.highlight.toLowerCase().includes(value) ||
 					post.tip.toLowerCase().includes(value)
 			)
 		);
