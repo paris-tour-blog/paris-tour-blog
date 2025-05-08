@@ -2,8 +2,6 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
- 
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -24,8 +22,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-
-
 
 h1 {
   font-size: 3.2em;
@@ -52,10 +48,9 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-
 .Navbar {
   padding: 10px 20px;
-  background-color: #ffffffcc; /* translucent white */
+  background-color: #ffffffcc;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   position: fixed;
@@ -90,6 +85,7 @@ button:focus-visible {
   background-color: #1f64d5;
   transform: translateY(-2px);
 }
+
 .accordion-content {
   display: flex;
   flex-direction: column;
@@ -129,77 +125,35 @@ button:focus-visible {
   margin-right: 5px;
 }
 
-.accordion-content {
-  opacity: 0; 
-  visibility: hidden;
-  flex-direction: column;
-  position: absolute;
-  margin-top: 5px;
-  padding: 10px;
-  z-index: 1000;
-  transition: opacity 0.3s ease, visibility 0.3s ease; 
-}
-
-.accordion:hover .accordion-content {
-  opacity: 1; 
-  visibility: visible;
-}
-
-
 .blog-post {
-  background-color: #f9f9f9; 
-  padding: 20px;            
-  border-radius: 5px;       
-  max-width: 800px;         
-  margin: 20px auto;        
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 800px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .blog-post h1 {
-  font-size: 32px;         
-  color: #333;             
+  font-size: 32px;
+  color: #333;
 }
 
 .blog-post img {
-  width: 100%;             
-  height: auto;            
-  margin-top: 20px;        
-  border-radius: 5px;      
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 5px;
 }
 
 .blog-post p {
-  line-height: 1.6;        
-  color: #555;             
+  line-height: 1.6;
+  color: #555;
 }
 
 .blog-post strong {
-  color: #e63946;  
+  color: #e63946;
 }
-@media (max-width: 768px) {
-  .navbar-buttons {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-  }
-
-  .Navbar {
-    padding: 10px 20px;
-  }
-
-  .navbar-buttons a button,
-  .accordion > button {
-    width: 100%;
-    text-align: center;
-  }
-
-  .accordion-content {
-    position: static;
-    margin-top: 5px;
-    box-shadow: none;
-    border: 1px solid #ddd;
-  }
-}
-
 
 .homepage {
   background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.2)), url('https://wallpapers.com/images/featured/paris-zy4x2ow5p7j5qi4a.jpg');
@@ -207,8 +161,7 @@ button:focus-visible {
   background-size: cover;
   background-position: center;
   min-height: 100vh;
-  padding-top: 60px; 
-
+  padding-top: 60px;
 }
 
 .homepage > div {
@@ -219,71 +172,21 @@ button:focus-visible {
   height: calc(100vh - 60px);
 }
 
-.CreateBlog {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 600px;
-  margin: 20px auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.CreateBlog h3 {
-  font-size: 1.6em;
+.homepage-title {
+  display: inline-block;
+  font-size: 3.2rem;
+  font-weight: 300;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #ffffff;
   margin-bottom: 20px;
-  color: #333;
-}
-
-.CreateBlog label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.CreateBlog input[type="text"],
-.CreateBlog textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
   border-radius: 5px;
-  border: 1px solid #ddd;
-  font-size: 1em;
-  font-family: inherit;
-  transition: border-color 0.3s ease;
 }
 
-.CreateBlog input[type="text"]:focus,
-.CreateBlog textarea:focus {
-  border-color: #3480FB;
-  outline: none;
-}
-
-.CreateBlog button {
-  background-color: #3480FB;
-  color: #fff;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 25px;
-  font-size: 1em;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  display: block;
-  margin: 0 auto;
-}
-
-.CreateBlog button:hover {
-  background-color: #1F64D5;
-  transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
-  .CreateBlog {
-    width: 90%;
-  }
-}
-
+.CreateBlog,
 .edit-blog {
   background-color: #ffffff;
   padding: 20px;
@@ -293,12 +196,14 @@ button:focus-visible {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.CreateBlog h3,
 .edit-blog h3 {
   font-size: 1.6em;
   margin-bottom: 20px;
   color: #333;
 }
 
+.CreateBlog label,
 .edit-blog label {
   display: block;
   font-weight: 500;
@@ -306,6 +211,8 @@ button:focus-visible {
   color: #333;
 }
 
+.CreateBlog input[type="text"],
+.CreateBlog textarea,
 .edit-blog input[type="text"],
 .edit-blog textarea {
   width: 100%;
@@ -318,12 +225,15 @@ button:focus-visible {
   transition: border-color 0.3s ease;
 }
 
+.CreateBlog input[type="text"]:focus,
+.CreateBlog textarea:focus,
 .edit-blog input[type="text"]:focus,
 .edit-blog textarea:focus {
   border-color: #3480FB;
   outline: none;
 }
 
+.CreateBlog button,
 .edit-blog button {
   background-color: #3480FB;
   color: #fff;
@@ -338,19 +248,14 @@ button:focus-visible {
   margin: 0 auto;
 }
 
+.CreateBlog button:hover,
 .edit-blog button:hover {
   background-color: #1F64D5;
   transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
-  .edit-blog {
-    width: 90%;
-  }
-}
-
 .about-page {
-  background-color: #ffffffcc; /* soft white background */
+  background-color: #ffffffcc;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 50px;
@@ -367,4 +272,62 @@ button:focus-visible {
   font-size: 1.1em;
   line-height: 1.6;
   margin-bottom: 20px;
+}
+
+.posts {
+  padding-top: 30px;
+  margin: 85px;
+}
+
+/* BURGER MENU STYLES */
+.burger-menu {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #646CFF;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block;
+  }
+
+  .navbar-buttons {
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    width: 100%;
+  }
+
+  .navbar-buttons.open {
+    max-height: 500px;
+  }
+
+  .navbar-buttons a button,
+  .accordion > button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .accordion-content {
+    position: static;
+    margin-top: 5px;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}
+
+/* DESKTOP OVERRIDE */
+@media (min-width: 769px) {
+  .navbar-buttons {
+    max-height: none;
+    flex-direction: row;
+  }
 }

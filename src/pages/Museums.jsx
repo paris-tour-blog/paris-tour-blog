@@ -39,7 +39,7 @@ function Museums() {
   
 
   return (
-    <div>
+    <div className="posts">
       <h1>Paris Museums and Galleries</h1>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
         {Museums.map((post) => (
@@ -55,7 +55,7 @@ function Museums() {
           > <Link to={`/MuseumPosts/${post.id}`}>
             <p>
            
-              <strong>Name:</strong> {post.title}
+              <strong>{post.title}</strong> 
             </p>
             <img
               src={post.img}

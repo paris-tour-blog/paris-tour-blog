@@ -124,7 +124,7 @@ export default function Blog() {
 						}}
 					>
 						<Link to={`/MuseumPosts/${post.id}`}>
-							<p><strong>Name:</strong> {post.title}</p>
+							<p><strong>{post.title}</strong> </p>
 							<img
 								src={post.img}
 								alt={post.title}
@@ -160,7 +160,7 @@ export default function Blog() {
 						}}
 					>
 						<Link to={`/FriperiesPosts/${post2.id}`}>
-							<p><strong>Name:</strong> {post2.title}</p>
+							<p><strong>{post2.title}</strong> </p>
               <img
 								src={post2.img}
 								alt={post2.title}
@@ -196,7 +196,7 @@ export default function Blog() {
 						}}
 					>
 						<Link to={`/RestaurantsPosts/${post3.id}`}>
-							<p><strong>Name:</strong> {post3.title}</p>
+							<p><strong>{post3.title}</strong> </p>
               <img
 								src={post3.img}
 								alt={post3.title}

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { NavLink, Link } from "react-router-dom"; 
+import { NavLink, Link } from "react-router-dom";
 
-function NavBar(){
+function NavBar() {
     const [isCategoriesOpen, setCategoriesOpen] = useState(false);
     const [isCreateBlogPostOpen, setCreateBlogPostOpen] = useState(false);
+    const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const toggleCategories = () => {
         setCategoriesOpen(!isCategoriesOpen);
@@ -13,13 +14,20 @@ function NavBar(){
         setCreateBlogPostOpen(!isCreateBlogPostOpen);
     };
 
+    const toggleMobileMenu = () => {
+        setMobileMenuOpen(!isMobileMenuOpen);
+    };
+
     return (
         <nav className="Navbar">
-            <div className="navbar-buttons">
+            <button className="burger-menu" onClick={toggleMobileMenu}>
+                ☰
+            </button>
+            <div className={`navbar-buttons ${isMobileMenuOpen ? "open" : ""}`}>
                 <NavLink to="/">
                     <button>Home</button>
                 </NavLink>
-                <NavLink to="/BLog">
+                <NavLink to="/Blog">
                     <button>Blog</button>
                 </NavLink>
                 <div className="accordion">
@@ -40,8 +48,6 @@ function NavBar(){
                         </div>
                     )}
                 </div>
-
-                {/* Separate Accordion Component */}
                 <div className="accordion">
                     <button onClick={toggleCreateBlogPost}>
                         Create A Blog Post
@@ -60,7 +66,6 @@ function NavBar(){
                         </div>
                     )}
                 </div>
-
                 <NavLink to="/About">
                     <button>About</button>
                 </NavLink>

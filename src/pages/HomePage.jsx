@@ -6,9 +6,10 @@ function HomePage() {
   
     return (
     
+      
     <div className="homepage" style={{ backgroundSize: "cover", backgroundPosition: "center" }}>
      
-        <h1>Les Parisiens</h1>
+        <h1 className="homepage-title">Paris Tour Blog</h1>
         <br />
         <br />
         <br />

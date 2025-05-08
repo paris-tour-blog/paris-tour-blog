@@ -37,7 +37,7 @@ function Friperies() {
   };
 
   return (
-    <div>
+    <div className="posts">
       <h1>Paris Friperies</h1>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
         {postsSecondHand.map((post) => (
@@ -52,7 +52,14 @@ function Friperies() {
             }}
           ><Link to={`/FriperiesPosts/${post.id}`}>
             <p>
-              <strong>Name:</strong> {post.title}
+              <strong>{post.title}</strong> 
+              <img
+								src={post.img}
+                alt="friperie"
+								width="270px"
+								height="200px"
+								style={{ objectFit: "cover", borderRadius: "4px" }}
+							/>
             </p>
             <p>{post.description}</p>
             <p>

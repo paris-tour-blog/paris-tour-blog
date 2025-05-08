@@ -40,7 +40,7 @@ function Restaurants(){
 
 
         return (
-            <div>
+            <div className="posts">
               <h1>Restaurants</h1>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
                 {postsRestaurant.map((post3) => (
@@ -56,7 +56,14 @@ function Restaurants(){
                   >
                     <Link to={`/RestaurantsPosts/${post3.id}`}>
                     <p>
-                      <strong>Name:</strong> {post3.title}
+                      <strong>{post3.title}</strong> 
+                      <img
+								src={post3.img}
+                alt="restaurant"
+								width="270px"
+								height="200px"
+								style={{ objectFit: "cover", borderRadius: "4px" }}
+							/>
                     </p>
                     <p>{post3.description}</p>
                     <div>
